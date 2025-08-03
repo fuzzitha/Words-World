@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Word Rescue - Robot Edition</title>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div id="game-container">
+        <h1 class="title">WORD RESCUE</h1>
+        <div class="subtitle">Save the Robot by Guessing the Word!</div>
+        
+        <pre id="logo"></pre>
+        
+        <div class="controls">
+            <select id="categories">
+                <option value="">SELECT CATEGORY</option>
+            </select>
+            <select id="difficulty">
+                <option value="medium">MEDIUM</option>
+                <option value="easy">EASY</option>
+                <option value="hard">HARD</option>
+            </select>
+            <button id="start-btn">START RESCUE</button>
+            <button id="hint-btn" disabled>EMERGENCY HINT</button>
+        </div>
+
+        <div class="stats">
+            <div>ROBOT HEALTH: <span id="lives-counter">6</span></div>
+            <div>SCORE: <span id="score-counter">0</span></div>
+            <div>CATEGORY: <span id="current-category">-</span></div>
+            <div>DIFFICULTY: <span id="current-difficulty">-</span></div>
+        </div>
+
+        <pre id="robot-art"></pre>
+        
+        <div id="word-display">Select category and start rescue mission!</div>
+        <div id="message">The robot needs your help! Start a new game to begin the rescue mission.</div>
+        <div id="keyboard"></div>
+    </div>
+
+    <div id="game-modal" class="modal">
+        <div class="modal-content">
+            <div id="modal-title"></div>
+            <pre id="modal-robot-art"></pre>
+            <div id="modal-message"></div>
+            <div id="modal-score"></div>
+            <button id="play-again-btn">RESCUE ANOTHER ROBOT</button>
+        </div>
+    </div>
+    
+    <audio id="sound-correct" src="{{ url_for('static', filename='sounds/correct.mp3') }}" preload="auto"></audio>
+    <audio id="sound-wrong" src="{{ url_for('static', filename='sounds/wrong.mp3') }}" preload="auto"></audio>
+    <audio id="sound-win" src="{{ url_for('static', filename='sounds/win.mp3') }}" preload="auto"></audio>
+    <audio id="sound-lose" src="{{ url_for('static', filename='sounds/lose.mp3') }}" preload="auto"></audio>
+    
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
